@@ -11,19 +11,19 @@ Blog.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    blogName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    descript: {
       type: DataTypes.STRING,
     },
-    date_created: {
+    dateCreated: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-   user_id: {
+   userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',

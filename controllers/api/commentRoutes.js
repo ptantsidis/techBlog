@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
       });
   
       res.status(200).json(newComment);
-    } catch (err) {
+    } catch (err) {s
       res.status(400).json(err);
     }
   });

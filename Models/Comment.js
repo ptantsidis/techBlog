@@ -14,19 +14,19 @@ Comment.init(
     comment: {
       type: DataTypes.STRING,
     },
-    date_created: {
+    dateCreated: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-   user_id: {
+   userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       },
     },
-    blog_id: {
+    blogId: {
       type: DataTypes.INTEGER,
        references: {
          model: 'blog',
