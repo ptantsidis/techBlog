@@ -13,6 +13,7 @@ Comment.init(
     },
     comment: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     dateCreated: {
       type: DataTypes.DATE,
@@ -39,7 +40,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blog',
+    modelName: 'comment',
   }
 );
 

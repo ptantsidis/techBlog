@@ -1,27 +1,27 @@
 [
   {
     "blogName": "Where do we go from here?",
-    "descript": "After all this hardwork and effort, imposter syndrome sets in. Will I make the cut? ",
+    "content": "After all this hardwork and effort, imposter syndrome sets in. Will I make the cut? ",
     "userId": 1
   },
   {
     "blogName": "Everything changes so rapidly in this field. How do you keep up?",
-    "descript": "Stay connected to where you want to go. Keep a network of associates close. Keep one lines of communication",
+    "content": "Stay connected to where you want to go. Keep a network of associates close. Keep one lines of communication",
     "userId": 2
   },
   {
     "blogName": "Who moved my cheese?",
-    "descript": "Great book about change. Wished I had heeded its ominous warnings.",
+    "content": "Great book about change. Wished I had heeded its ominous warnings.",
     "userId": 3
   },
   {
     "blogName": "There has to be an easier way!",
-    "descript": "The explosion of everything digital. Is easier always better?",
+    "content": "The explosion of everything digital. Is easier always better?",
     "userId": 4
   },
   {
     "blogName": "What are NFT's!",
-    "descript": "Why is this digital collectible exploding in value?",
+    "content": "Why is this digital collectible exploding in value?",
     "userId": 5
   }
 ]
