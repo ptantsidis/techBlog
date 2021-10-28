@@ -1,12 +1,12 @@
 [
     {
       "comment": "The land is of infinite possibility. What you see is what you've created. So.....",
-      "user_id": 1,
-      "blog_id": 1
+      "userId": 1,
+      "blogId": 1
     },
     {
       "comment": "You got that straight. Pandemic moved more than the cheese!",
-      "user_id": 3,
-      "blog_id": 2
+      "userId": 3,
+      "blogId": 2
     }
 ]

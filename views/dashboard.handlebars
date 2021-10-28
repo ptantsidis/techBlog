@@ -1,0 +1,9 @@
+<main class="container">
+    <h1>Welcome {{username}}</h1>
+    {{#each blogs }}
+    <div class="card">
+        <h1>{{this.blogNAme}}</h1>
+        <p>{{this.content}}</p>
+    </div>
+    {{/each}}
+</main>

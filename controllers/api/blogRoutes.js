@@ -1,6 +1,19 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
 
+
+router.get('/', async (req, res) => {
+  try {
+    const newBlog = await Blog.findAll({
+    });
+console.log(req.session.values);
+
+    res.render('dashboard',{blogs:newBlog, username: req.session.user.name});
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.post('/', async (req, res) => {
     try {
       const newBlog = await Blog.create({
