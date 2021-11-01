@@ -1,14 +1,17 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
-router.post('/', async (req, res) => {
+
+
+router.post('/',  async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
+      console.log(userData)
       res.status(200).json(userData);
     });
   } catch (err) {
@@ -17,6 +20,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  console.log('login')
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 

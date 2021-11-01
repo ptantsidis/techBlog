@@ -6,9 +6,9 @@ router.get('/', async (req, res) => {
   try {
     const newBlog = await Blog.findAll({
     });
-console.log(req.session.values);
+console.log(newBlog);
 
-    res.render('dashboard',{blogs:newBlog, username: req.session.user.name});
+    res.render('dahboard', {blogs:newBlog, username: req.session.user.name});
   } catch (err) {
     res.status(400).json(err);
   }
