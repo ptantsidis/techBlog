@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/withAuth");
- const { Blog, User, Comment } = require("../models");
+ const { Blog, User } = require("../models");
  const { sequelize } = require("../models/User");
 
 router.get("/",(req,res) => {
@@ -37,7 +37,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       const blogs= newBlog.map(blog=>blog.get({plain:true}))
       console.log(blogs);
       console.log(req.session)
-      
+
       res.render('dashboard', {
         blogs,
         scripts: [{ script: "login.js" }, { script: 'logout.js' }],

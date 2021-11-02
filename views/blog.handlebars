@@ -1,14 +1,12 @@
-<div class="main">
-<main class="col-md-8">
+main class="col-md-8">
     <div class="container">
         <div class='row'></div>
-            {{#each blogs as | data | }}
             <div class="card col-lg-12 d-flex flex-wrap justify-content-center">
-                <a href = './blog'>
+                <a href = '/blog'>
                 <h3> {{data.blogName}} <span hidden>{{data.id}} </span> </a> <small> on {{format_date data.dateCreated}} by {{data.user.name}} </small> </h3>
                 <p>{{data.content}}</p> </a>
             </div>
-            {{/each}}
+
         </div>
     </div>
 </main>
