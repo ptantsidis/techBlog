@@ -2,8 +2,8 @@
      font-family: Arial, Helvetica, sans-serif;
  }
   
-nav  {
-    float: right;
+ader{
+    max-height: 10%;
 
 }
   
@@ -11,14 +11,40 @@ nav  {
     list-style-type: none;
  
   } 
+  nav  {
+    float: right;
+}
+
   nav ul li { 
     display: inline;
     margin-left: 20px;
     list-style-type: none;
     color: black ;
   }
-  /* body{
-    background: url("./images/23735464.JPG");
-    background-size: cover;
-    background-repeat: no-repeat;
+.container {
+    display:inline-block;
+    flex-wrap: wrap;
+    background-color: lightgrey;
+  }
+/* 
+
+
+.sidebar {
+    display:inline-block
+  }
+  .card {
+    text-align: center; 
+    border-style: solid;
+    border-width: .2rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    max-width: 80%;
 } */
+@media screen and (max-width: 600px) {
+  .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+  }
+}
+

@@ -13,5 +13,5 @@ router.post('/', async (req, res) => {
       res.status(400).json(err);
     }
   });
-// How do I attach the comment to the blog
+
 module.exports = router;

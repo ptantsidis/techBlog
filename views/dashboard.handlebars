@@ -1,9 +1,42 @@
-<main class="container">
-    <h1>Welcome {{username}}</h1>
-    {{#each blogs }}
-    <div class="card">
-        <h1>{{this.blogNAme}}</h1>
-        <p>{{this.content}}</p>
+{{!-- <div class="container"></div> --}}
+<div class="left">
+    <a class="profile">
+        <p>Name: {{user_id.username}} Email: {{user_id.useremail}}</p>
+        
+        {{user_id.user_id}}
+    </a>
+</div>
+{{!-- </div> --}}
+<!-- SIDEBAR -->
+<div class="container">
+    {{!-- <div class='row'> --}}
+        {{!-- <div class="sidebar col-md-4"> --}}
+            <a class="menu-item active">
+                <span><i class="new-blog"></i></span>
+                <h3>New Blog</h3>
+            </a>
+            <a class="menu-item" id="comments">
+                <span><i class="uil uil-palette"></i></span>
+                <h3>Edit Blog</h3>
+            </a>
+            <div id="logout" class="menu-item">
+                <span><i class="uil uil-sign-out-alt"></i></i></span>
+                <h3>Sign Out</h3>
+            {{!-- </div> --}}
+        {{!-- </div> --}}
     </div>
-    {{/each}}
+    <!-- END OF SIDEBAR -->
+</div>
+<!-- END OF LEFT -->
+<main class="col-md-8">
+    <div class="container">
+        <div class='row'></div>
+            {{#each blogs as | data | }}
+            <div class="card col-lg-12 d-flex flex-wrap justify-content-center">
+                <h3> {{data.blogName}} <span hidden>{{data.id}} </span> </a> <small> on {{format_date data.dateCreated}} by {{data.user.name}} </small> </h3>
+                <p>{{data.content}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
 </main>

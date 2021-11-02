@@ -1,22 +1,11 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
+const withAuth = require('../../utils/withAuth');
+const helpers = require('../../utils/helpers');
 
-
-router.get('/', async (req, res) => {
-  try {
-    const newBlog = await Blog.findAll({
-    });
-console.log(newBlog);
-
-    res.render('dahboard', {blogs:newBlog, username: req.session.user.name});
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.post('/', async (req, res) => {
+router.put('/', withAuth, async (req, res) => {
     try {
-      const newBlog = await Blog.create({
+      const newBlog = await Blog.update({
         ...req.body,
         user_id: req.session.user_id,
       });
