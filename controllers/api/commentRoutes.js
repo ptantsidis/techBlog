@@ -1,32 +1,35 @@
+const router = require('express').Router();
+const {  Comment } = require('../../models');
+const withAuth = require("../../utils/withAuth");
 
-console.log('commentRoute');
-  
-  const router = require('express').Router();
-const { User, Comment } = require('../../models');
+
 
 router.post('/', async (req, res) => {
-    try {
-      const newComment = await Comment.update({
-        ...req.body,
-        user_id: req.session.user_id,
-      });
-  
-      res.status(200).json(newComment);
-    } catch (err) {s
-      res.status(400).json(err);
-    }
-  });
-router.get('/:id', async (req,res) => {
-  try {
-    const newComment = await Comment.findPK({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
+  console.log(req.body)
+   try {
+     const newComment = await Comment.create({
+      comment:req.body.newComment,
+      blogId:req.body.newBlogId,
+      userId:req.session.user_id
+     });
+    
+    console.log(newComment);
     res.status(200).json(newComment);
-  } catch (err) {s
+  } catch (err) {
     res.status(400).json(err);
   }
-})
-// How do I attach the comment to the blog
+});
+// router.get('/:id', async (req,res) => {
+//   try {
+//     const newComment = await Comment.findPK({
+//       ...req.body,
+//       user_id: req.session.user_id,
+//     });
+
+//     res.status(200).json(newComment);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// })
+
 module.exports = router;

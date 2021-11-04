@@ -1,3 +1,4 @@
+console.log('blog linked');
 const loginFormHandler = async (event) => {
      event.preventDefault();
 

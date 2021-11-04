@@ -6,28 +6,32 @@ h1{
   display:inline-block;
   text-align: start;
   border: solid;
+  margin-left: 250px;
+  box-shadow: 5px 10px #888888;
 }
 .card{
+  border: solid;
   box-shadow: 5px 10px #888888;
 }
 
 .container {
     display:inline-block;
     flex-wrap: wrap;
-    /* background-color: lightgrey; */
+    margin-left: 240px;
+    margin-top: 40px;
   }
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
+  width: 240px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
-  top:50px; /* Stay at the top */
+  top:0px; /* Stay at the top */
   left: 0;
   background-color: rgb(44, 42, 42); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
-  color: #818181;
+  color: white;
 }
 
 /* The navigation menu links */
@@ -47,10 +51,17 @@ h1{
 
 /* Style page content */
 .main {
-  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  margin-left: 240px; /* Same width as the sidebar + left position in px */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
-
+}
+.input-group{
+  padding-top: 18px;
+}
+#button-comment{
+  background-color: rgb(44, 42, 42); /* Black */ 
+  color:#818181;
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {

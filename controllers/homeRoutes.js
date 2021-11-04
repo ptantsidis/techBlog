@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const withAuth = require("../utils/withAuth");
- const { Blog, User } = require("../models");
- const { sequelize } = require("../models/User");
+const { Blog, User } = require("../models");
+const { sequelize } = require("../models/User");
 
 router.get("/",(req,res) => {
-    res.render("login")
+    res.render("home")
 })
 
 router.get("/signup",(req,res) => {
@@ -18,11 +18,11 @@ router.get("/signup",(req,res) => {
       res.render("signup")
 })
 
-// router.get("/dashboard",withAuth, (req,res) => {
-//     console.log(req.session.user,"user");
-//     res.render("dashboard",{username:req.session.username,email:req.session.useremail,user_id: req.session.user_id})
-// })
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/login', (req,res) => {
+  res.render('login');
+})
+
+router.get('/dashboard',  async (req, res) => {
     try {
       const newBlog = await Blog.findAll({
           include: [
@@ -40,9 +40,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
       res.render('dashboard', {
         blogs,
-        scripts: [{ script: "login.js" }, { script: 'logout.js' }],
-        user_id: req.session
-      
+        // scripts: [{ script: "login.js" }, { script: 'logout.js' }],
+        user_id: req.session,
+        
+
       });
    
     } catch (err) {

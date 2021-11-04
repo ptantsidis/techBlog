@@ -1,29 +1,44 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, User , Comment} = require('../../models');
 const withAuth = require('../../utils/withAuth');
 const helpers = require('../../utils/helpers');
 
 router.get('/:id', withAuth, async (req, res) => {
     try {
-      const newBlog = await Blog.findbyPK({
+      const blogs = await Blog.findAll( {
+
+
+    
+
+
         include: [
           {
               model: User,
               attributes: ['name', 'id','email'],
               required: true
-          } 
-        ]
+          },
+          { model: Comment, 
+            attributes: ['comment','blogId', 'userId', 'id','dateCreated' ],
+            required: false,
+            include:[
+              {model:User,
+              attributes:['name'], 
+              required: false }    
+          ]
+        }, 
+        ],
+      
+      
     });
-    
-    const blogs= newBlog.map(blog=>blog.get({plain:true}))
-    console.log(blogs);
-    console.log(req.session)
 
-    res.render('dashboard', {
-      blogs,
-      scripts: [{ script: "login.js" }, { script: 'logout.js' }],
-      user_id: req.session
-    
+  
+    const newBlog= blogs.map(blog=>blog.get({plain:true}))
+    const finalBlog=newBlog.filter(blog=>blog.id==req.params.id)
+    console.log(finalBlog[0].comments)
+
+    res.render('blog', {
+      finalBlog:finalBlog[0],
+      user_id: req.session.user_id,
     });
  
   } catch (err) {

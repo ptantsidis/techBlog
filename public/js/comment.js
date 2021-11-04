@@ -1,18 +1,21 @@
-let blog = document.querySelectorAll(".blogBtn");
+console.log("commment file loaded")
+let commentBtn=document.querySelector(".commentBtn")
 
-const blogFormHandler = async (event) => {
-      event.preventDefault();
-      
-      const response = await fetch ('/api/blog/', {
+//create function that gets
+const commentFormHandler = async (event) => {
+       event.preventDefault();
+    const newComment =document.querySelector('#commentText').value
+    const newBlogId =Number( event.target.dataset.blogid);
+    console.log(newBlogId)
+
+        const response = await fetch ('/api/comments/', {
         method: 'POST',
-        body: JSON.stringify({content:content,blogId:Blog(blogid)}),
-        headers: {'Content-Type': 'application/json'}
+         body: JSON.stringify({ newComment, newBlogId }),
+        headers: {'Content-Type': 'application/json'},
     });
-    const content = event.target.previousElementSibling.value;
-      const collectid =event.target.dataset.collectid;
-      console.log(event.target)
+    if(response.ok){
+        document.location.replace(`/api/blogRoute/${newBlogId}`)
+    }
 
-
-// commentBtn.forEach((comment)=>{
-//     comment.addEventListener('click', commentFormHandler)
 }
+commentBtn.addEventListener('click',commentFormHandler);
