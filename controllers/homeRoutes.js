@@ -4,18 +4,27 @@ const { Blog, User } = require("../models");
 const { sequelize } = require("../models/User");
 
 router.get("/",(req,res) => {
-    res.render("home")
+  
+  res.render("home", {
+    user_id: req.session,
+  })
 })
 
 router.get("/signup",(req,res) => {
     
-    // req.session.save(() => {
-    //     req.session.user_id = {id:userData.id, name:userData.userName,email:};
-    //     req.session.logged_in = true;
-  
-    //     res.json({ user: userData, message: "You are now logged in!" });
-    //   });
-      res.render("signup")
+  req.session.save(() => {
+    // req.session.user_id = {id:userData.id, name:userData.userName,email:};
+    // req.session.logged_in = true;
+  req.session.user_id = userData.id;
+  req.session.logged_in = true;
+  req.session.username = userData.name;
+  req.session.useremail = userData.email;
+
+  res.json({ user: userData, message: "You are now logged in!" });
+  });
+  res.render("signup", {
+    user_id: req.session,
+  })
 })
 
 router.get('/login', (req,res) => {

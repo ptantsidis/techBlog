@@ -17,22 +17,23 @@
 
   <!-- Side navigation -->
   <div class="sidenav">
-    <p>Name: {{user_id.username}}{{newBlog.username}}</p>  
+    <p>Name: {{user_id.username}}</p>  
     <p> Email: {{user_id.useremail}}</p> 
     <span hidden>{{user_id.user_id}} </span> 
-    <a href="/">Home</a>
-    {{#if logged_in}}
-    <a href="logout">Logout</a>
+     {{#if user_id.logged_in}}
+    <a id='logout' href="/">Logout</a>
     {{else}}
     <a href="login">Login</a>
     {{/if}}
     <a href="/dashboard">Dashboard</a>
+    <a id= 'add-blog' href="addBlog">New Blog</a>
   
   </div>
  <body>
     {{{ body }}}
-    {{#each scripts}}
-    <script src="js/{{script}}"></script>
-    {{/each}};
+    {{#if user_id.logged_in}}
+    <script src="js/logout.js"></script>
+    <script src="js/addBlog.js"></script>
+    {{/if}};
  </body>
  </html>
