@@ -26,14 +26,13 @@
     <a href="login">Login</a>
     {{/if}}
     <a href="/dashboard">Dashboard</a>
-    <a id= 'add-blog' href="addBlog">New Blog</a>
+    <a id= 'add-blog' href="/newBlog">New Blog</a>
   
   </div>
  <body>
     {{{ body }}}
     {{#if user_id.logged_in}}
     <script src="js/logout.js"></script>
-    <script src="js/addBlog.js"></script>
     {{/if}};
  </body>
  </html>

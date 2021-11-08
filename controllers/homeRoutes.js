@@ -13,8 +13,6 @@ router.get("/",(req,res) => {
 router.get("/signup",(req,res) => {
     
   req.session.save(() => {
-    // req.session.user_id = {id:userData.id, name:userData.userName,email:};
-    // req.session.logged_in = true;
   req.session.user_id = userData.id;
   req.session.logged_in = true;
   req.session.username = userData.name;
@@ -49,14 +47,19 @@ router.get('/dashboard',  async (req, res) => {
 
       res.render('dashboard', {
         blogs,
-        // scripts: [{ script: "login.js" }, { script: 'logout.js' }],
         user_id: req.session,
-        
-
       });
    
     } catch (err) {
       res.status(400).json(err);
     }
   });
+
+
+  router.get('/newBlog', withAuth,  async(req,res)=>{
+    console.log("NewBlog",req.session)
+    res.render('addBlog',  {
+      user_id: req.session,
+    })
+  })
 module.exports = router

@@ -41,5 +41,14 @@ router.get('/:id', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+router.put('/api/blogRoute/updateBlog/:id',withAuth, async (req,res) => {
+  try {
+    const blogs = await Blog.update
+     ({ where :{id: req.params.id}})
+     res.json(blogs)
+  }
+  catch (err){
+    res.status(400).json(err);
+  }
+})
 module.exports = router;

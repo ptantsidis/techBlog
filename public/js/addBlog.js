@@ -1,15 +1,15 @@
 console.log("NewBlog file loaded")
 
-let newBlogData = document.getElementById("add-blog");
+let newBlogData = document.getElementById("new-blog");
 
 
-const newBlogData =  async (event) => {
+ const addBlogData = async (event) => {
     event.preventDefault();
     const data = {
       blogName: document.getElementById('blog-name').value,
       content: document.getElementById('blog-content').value
     }
-    const response = await fetch(`/api/blogRoute/`, {
+    const response = await fetch(`/api/addBlog/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }, 
       body: JSON.stringify(data)
@@ -23,4 +23,4 @@ const newBlogData =  async (event) => {
       alert('Error creating new Blog"')
     }
   };
-  newBlogData.addEventListener('click', newBlogData)
+  newBlogData.addEventListener('submit', addBlogData)
