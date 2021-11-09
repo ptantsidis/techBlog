@@ -3,7 +3,7 @@
         <div class="container">
             <div class='row'>
                 <div class="card col-lg-12 d-flex flex-wrap justify-content-center">
-                    {{#ifCond user_id == finalBlog.user.id}}
+                    {{#if (user_id == finalBlog.user.id)}}
                       <input value={{finalBlog.blogName}} id="update-blog-name" type="text"/>
                       <input value = {{finalBlog.content}} id= "update-blog-content" type = "text">
                       <button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="button" id="button-blog">Update Blog</button>
@@ -11,7 +11,7 @@
                     <h3> {{finalBlog.blogName}} by {{finalBlog.user.name}} <span hidden>{{finalBlog.id}}  </span> </a> <small>  on  {{format_date finalBlog.dateCreated}} </small> </h3>
                     <p>{{finalBlog.content}}<span hidden>{{finalBlog.user.id}}  </span> </p> </a>
                     <span hidden>{{user_id}}</span>
-                    {{/ifCond}}
+                    {{/if}}
                 </div>
             </div>
             <div class='row'>
@@ -24,7 +24,6 @@
                         <button data-blogid="{{finalBlog.id}}" class="btn commentBtn btn-outline-secondary" type="button" id="button-comment">Post Comment</button>
                     </div>
                 </div>
-                {{!-- <button type="submit" class="btn updateBlogBtn  btn-primary">Update Blog</button> --}}
             </div>
         </div>
     </div>

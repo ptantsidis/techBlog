@@ -22,13 +22,13 @@ const commentFormHandler = async (event) => {
     }
     }
 }
-    const blogUpdateHandler = async (event) => {
+const blogUpdateHandler = async (event) => {
     event.preventDefault();
     console.log("update clicked")
     const newUpdateBlog =document.querySelector('#update-blog-name').value
     const newBlogId =Number( event.target.dataset.blogid);
     const blogContent = document.querySelector('#update-blog-content').value
- console.log(newBlogId)
+    console.log(newBlogId)
 
      const response = await fetch (`/api/blogRoute/updateBlog/${newBlogId}`, {
      method: 'PUT',
@@ -38,7 +38,7 @@ const commentFormHandler = async (event) => {
  if(response.ok){
      document.location.replace(`/api/blogRoute/${newBlogId}`)
  }
-
+}
 
 commentBtn.addEventListener('click', commentFormHandler);
  updateBlog.addEventListener('click', blogUpdateHandler );
