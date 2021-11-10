@@ -8,6 +8,7 @@
                         <input value={{finalBlog.blogName}} id="update-blog-name" type="text"/>
                         <input value={{finalBlog.content}} id= "update-blog-content" type = "text">
                         <button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="submit" id="button-blog">Update Blog</button>
+                         <button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="submit" id="button-delete">Delete Blog</button>
                       </form>
                     {{else}}
                         <h3> {{finalBlog.blogName}} by {{finalBlog.user.name}} <span hidden>{{finalBlog.id}}  </span> </a> <small>  on  {{format_date finalBlog.dateCreated}} </small> </h3>

@@ -50,15 +50,26 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 router.put('/updateBlog/:id', withAuth, async (req,res) => {
+
   try {
     const blogs = await Blog.update
-     ({ where :{id: req.params.id}})
-     res.json(blogs)
+     (req.body,{ where :{id: req.params.id}})
+     res.status(200).end()
   }
   catch (err){
     res.status(400).json(err);
   }
 })
 
+
+router.delete('/delete/:id', withAuth, async (req,res) => {
+    try {
+      const deletedBlog=Blog.destroy({where:{id:req.params.id}}) 
+       res.status(200).end()
+    }
+    catch (err){
+      res.status(400).json(err);
+    }
+  })
 
 module.exports = router;
