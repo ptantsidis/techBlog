@@ -1,4 +1,3 @@
-console.log("Blog file loaded")
 // let blog = document.querySelectorAll(".blogBtn");
 let dataId = document.querySelector("span").value;
 
@@ -9,6 +8,12 @@ const blogFormHandler = async (event) => {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   });
+
+  if (response.ok) {
+    console.log("success");
+  } else {
+    console.log('something went wrong');
+  }
 
   dataId.addEventListener('click', blogFormHandler)
 }

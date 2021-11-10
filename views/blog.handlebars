@@ -3,30 +3,32 @@
         <div class="container">
             <div class='row'>
                 <div class="card col-lg-12 d-flex flex-wrap justify-content-center">
-                    {{#if (user_id == finalBlog.user.id)}}
-                      <input value={{finalBlog.blogName}} id="update-blog-name" type="text"/>
-                      <input value = {{finalBlog.content}} id= "update-blog-content" type = "text">
-                      <button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="button" id="button-blog">Update Blog</button>
-                      {{else}}
-                    <h3> {{finalBlog.blogName}} by {{finalBlog.user.name}} <span hidden>{{finalBlog.id}}  </span> </a> <small>  on  {{format_date finalBlog.dateCreated}} </small> </h3>
-                    <p>{{finalBlog.content}}<span hidden>{{finalBlog.user.id}}  </span> </p> </a>
-                    <span hidden>{{user_id}}</span>
+                    {{#if owner}}
+                      <form>
+                        <input value={{finalBlog.blogName}} id="update-blog-name" type="text"/>
+                        <input value={{finalBlog.content}} id= "update-blog-content" type = "text">
+                        <button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="submit" id="button-blog">Update Blog</button>
+                      </form>
+                    {{else}}
+                        <h3> {{finalBlog.blogName}} by {{finalBlog.user.name}} <span hidden>{{finalBlog.id}}  </span> </a> <small>  on  {{format_date finalBlog.dateCreated}} </small> </h3>
+                        <p>{{finalBlog.content}}<span hidden>{{finalBlog.user.id}}  </span> </p> </a>
+                        <span hidden>{{user_id}}</span>
+                        <div class='row'>
+                            <div class="card col-lg-12 d-flex flex-wrap justify-content-center">
+                        {{#each finalBlog.comments as |comment| }}
+                            <p>{{comment.comment}} by {{comment.user.name}} <small>  on {{format_date comment.dateCreated}} </small></p>  
+                        {{/each}}  
+                            <div class="input-group mb-3" id="comment-form">
+                                <input type="text" id="commentText" class="form-control" placeholder="Type comment">
+                                <button data-blogid="{{finalBlog.id}}" class="btn commentBtn btn-outline-secondary" type="button" id="button-comment">Post Comment</button>
+                            </div>
+                        </div>
                     {{/if}}
                 </div>
             </div>
-            <div class='row'>
-                <div class="card col-lg-12 d-flex flex-wrap justify-content-center">
-                        {{#each finalBlog.comments as |comment| }}
-                         <p>{{comment.comment}} by {{comment.user.name}} <small>  on {{format_date comment.dateCreated}} </small></p>  
-                        {{/each}}  
-                    <div class="input-group mb-3" id="comment-form">
-                        <input type="text" id="commentText" class="form-control" placeholder="Type comment">
-                        <button data-blogid="{{finalBlog.id}}" class="btn commentBtn btn-outline-secondary" type="button" id="button-comment">Post Comment</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div>    
     </div>
+</div>
 </main>
 
 <script src="/js/comment.js"></script>
