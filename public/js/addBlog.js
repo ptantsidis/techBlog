@@ -16,7 +16,7 @@ let newBlogData = document.getElementById("new-blog");
     });
     if (response.ok) {
       console.log("New blog created")
-      location.reload();
+      document.location.replace('/dashboard');
   
     }
     else {

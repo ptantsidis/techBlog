@@ -1,82 +1,82 @@
- * {
-     font-family: Arial, Helvetica, sans-serif;
- }
-  
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 h1{
-  display:inline-block;
-  text-align: start;
-  border: solid;
-  margin-left: 250px;
-  box-shadow: 5px 10px #888888;
+display:inline-block;
+text-align: start;
+border: solid;
+margin-left: 250px;
+box-shadow: 5px 10px #888888;
 }
 .card{
-  border: solid;
-  box-shadow: 5px 10px #888888;
+border: solid;
+box-shadow: 5px 10px #888888;
 }
 
 .container {
-    display:inline-block;
-    flex-wrap: wrap;
-    margin-left: 240px;
-    margin-top: 40px;
-  }
+ display:inline-block;
+ flex-wrap: wrap;
+ margin-left: 240px;
+ margin-top: 40px;
+}
 /* The sidebar menu */
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 240px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top:0px; /* Stay at the top */
-  left: 0;
-  background-color: rgb(44, 42, 42); /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
-  color: white;
+height: 100%; /* Full-height: remove this if you want "auto" height */
+width: 240px; /* Set the width of the sidebar */
+position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+z-index: 1; /* Stay on top */
+top:0px; /* Stay at the top */
+left: 0;
+background-color: rgb(44, 42, 42); /* Black */
+overflow-x: hidden; /* Disable horizontal scroll */
+padding-top: 20px;
+color: white;
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  
+padding: 6px 8px 6px 16px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+color: #f1f1f1;
 }
 
 /* Style page content */
 .main {
-  margin-left: 240px; /* Same width as the sidebar + left position in px */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
+margin-left: 240px; /* Same width as the sidebar + left position in px */
+font-size: 28px; /* Increased text to enable scrolling */
+padding: 0px 10px;
 }
 .input-group{
-  padding-top: 18px;
+padding-top: 18px;
 }
-#button-comment{
-  background-color: rgb(44, 42, 42); /* Black */ 
-  color:#818181;
+
+#button-blog, #button-delete, #button-comment, #button-add  { 
+background-color: rgb(44, 42, 42); /* Black */ 
+color:#818181;
 }
-#button-blog{
-  background-color: rgb(44, 42, 42); /* Black */ 
-  color:#818181;
+#button-blog:hover, #button-delete:hover, #button-comment:hover, #button-add:hover {
+color: #f1f1f1;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
 }
 @media screen and (max-width: 600px) {
-  .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-  }
+.column {
+   width: 100%;
+   display: block;
+   margin-bottom: 20px;
+}
 }
 

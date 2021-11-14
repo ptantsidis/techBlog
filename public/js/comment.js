@@ -1,6 +1,6 @@
 let commentBtn = document.querySelector(".commentBtn")
 let updateBlog = document.querySelector(".blogBtn")
-let deleteBlog=document.querySelector('#button-delete')
+let deleteBlog = document.querySelector('#button-delete')
 
 //create function that gets
 const commentFormHandler = async (event) => {
@@ -53,12 +53,11 @@ const blogDeleteHandler = async (event) => {
         console.log(response);
     }
 }
-
-
-if (owner = false) {
+// console.log(owner)
+// if (owner = false) {
     commentBtn.addEventListener('click', commentFormHandler);
     
-} else {
+// } else {
     updateBlog.addEventListener('click', blogUpdateHandler);
-    deleteBlog.addEventListener('click',blogDeleteHandler)
-};
+    deleteBlog.addEventListener('click', blogDeleteHandler)
+// };

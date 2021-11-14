@@ -4,12 +4,16 @@
             <div class='row'>
                 <div class="card col-lg-12 d-flex flex-wrap justify-content-center">
                     {{#if owner}}
-                      <form>
+                      {{!-- <form> --}}
+                    <div class="input-group mb-3" id="update-blog">
                         <input value={{finalBlog.blogName}} id="update-blog-name" type="text"/>
                         <input value={{finalBlog.content}} id= "update-blog-content" type = "text">
                         <button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="submit" id="button-blog">Update Blog</button>
                          <button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="submit" id="button-delete">Delete Blog</button>
-                      </form>
+                         <span hidden><button data-blogid="{{finalBlog.id}}" class="commentBtn btn  btn-outline-secondary"
+                                    type="button" id="button-comment">Post Comment</button></span>
+                    </div> 
+                      {{!-- </form> --}}
                     {{else}}
                         <h3> {{finalBlog.blogName}} by {{finalBlog.user.name}} <span hidden>{{finalBlog.id}}  </span> </a> <small>  on  {{format_date finalBlog.dateCreated}} </small> </h3>
                         <p>{{finalBlog.content}}<span hidden>{{finalBlog.user.id}}  </span> </p> </a>
@@ -22,6 +26,9 @@
                             <div class="input-group mb-3" id="comment-form">
                                 <input type="text" id="commentText" class="form-control" placeholder="Type comment">
                                 <button data-blogid="{{finalBlog.id}}" class="btn commentBtn btn-outline-secondary" type="button" id="button-comment">Post Comment</button>
+                                <span hidden><button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="submit" id="button-blog">Update Blog</button>
+                                <button data-blogid="{{finalBlog.id}}" class="btn blogBtn btn-outline-secondary" type="submit" id="button-delete">Delete Blog</button></span>   
+ 
                             </div>
                         </div>
                     {{/if}}

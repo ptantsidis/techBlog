@@ -66,6 +66,7 @@ router.delete('/delete/:id', withAuth, async (req,res) => {
     try {
       const deletedBlog=Blog.destroy({where:{id:req.params.id}}) 
        res.status(200).end()
+       res.render('\dashboard')
     }
     catch (err){
       res.status(400).json(err);
